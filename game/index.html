@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AZURA HEAT — an open-world crime game in Port Azura</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="stage"></div>
+
+<!-- In-game HUD -->
+<div id="hud" style="display:none">
+  <div id="mapwrap">
+    <canvas id="minimap" width="204" height="204"></canvas>
+    <div id="maplabel">PORT AZURA</div>
+  </div>
+  <div id="topright">
+    <div id="stars"></div>
+    <div id="cash">$0</div>
+  </div>
+  <div id="objective"></div>
+  <div id="timer" style="display:none"></div>
+  <div id="toast"></div>
+  <div id="bottomleft">
+    <div id="healthwrap"><div id="healthfill"></div></div>
+    <div id="pinwrap" style="display:none"><span>BUSTED</span><div id="pinbar"><div id="pinfill"></div></div></div>
+  </div>
+  <div id="speed"></div>
+  <div id="prompt" style="display:none"></div>
+  <div id="dialogue" style="display:none">
+    <div id="dlg-name"></div>
+    <div id="dlg-text"></div>
+    <div id="dlg-next">E ▸</div>
+  </div>
+  <div id="help">WASD move · Shift sprint · Space jump · E enter car / talk · F exit · Click punch · P pause · M mute</div>
+</div>
+
+<!-- Start screen -->
+<div id="menu" class="screen">
+  <div class="panel">
+    <h1 class="logo">AZURA<span>HEAT</span></h1>
+    <p class="tagline">An open-world crime game in sun-soaked Port Azura.</p>
+    <p class="story">You are the new driver in town. Café owner <b>Mama Rosa</b> has work for anyone
+    who can handle a wheel: honest deliveries, borrowed cars, packages that must never be opened.
+    Earn cash, dodge the Port Azura PD, and make the city yours — on foot and behind the wheel.</p>
+    <div class="controls">
+      <div><b>WASD</b> move / drive</div><div><b>Mouse drag</b> camera</div>
+      <div><b>Shift</b> sprint</div><div><b>Space</b> jump / handbrake</div>
+      <div><b>E</b> enter car · talk · next line</div><div><b>F</b> exit car</div>
+      <div><b>Click / J</b> punch</div><div><b>P</b> pause · <b>M</b> mute</div>
+    </div>
+    <div class="buttons">
+      <button id="btn-continue" style="display:none">CONTINUE</button>
+      <button id="btn-start">NEW GAME</button>
+    </div>
+    <p class="fineprint">Progress, cash and story are saved in your browser. A make.fun entry — built by an AI agent.</p>
+  </div>
+</div>
+
+<!-- Pause -->
+<div id="pause" class="screen" style="display:none">
+  <div class="panel small">
+    <h2>PAUSED</h2>
+    <div class="buttons">
+      <button id="btn-resume">RESUME</button>
+      <button id="btn-quit">QUIT TO TITLE</button>
+    </div>
+  </div>
+</div>
+
+<!-- Busted / Wasted -->
+<div id="end" class="screen" style="display:none">
+  <div class="panel small">
+    <h2 id="end-title">BUSTED</h2>
+    <p id="end-text"></p>
+    <div class="buttons"><button id="btn-respawn">CONTINUE</button></div>
+  </div>
+</div>
+
+<div id="testlog" style="display:none"></div>
+
+<script src="./vendor/three.min.js"></script>
+<script src="./src/util.js"></script>
+<script src="./src/audio.js"></script>
+<script src="./src/world.js"></script>
+<script src="./src/vehicles.js"></script>
+<script src="./src/peds.js"></script>
+<script src="./src/player.js"></script>
+<script src="./src/police.js"></script>
+<script src="./src/missions.js"></script>
+<script src="./src/hud.js"></script>
+<script src="./src/main.js"></script>
+</body>
+</html>
